@@ -21,6 +21,15 @@ def calculate_electric_field_effect(material_type, voltage):
     else:
         return 0.0
 
+def simulate_optical_properties(refractive_index, wavelength):
+    """
+    Simulates optical properties for high-refractive-index glass.
+    """
+    # A placeholder for a more complex optical model
+    absorption_coefficient = 0.01 * refractive_index
+    scattering_coefficient = 0.005 / wavelength
+    return absorption_coefficient + scattering_coefficient
+
 def main():
     print("Glass Simulation Started")
     # Example usage
@@ -29,6 +38,10 @@ def main():
 
     conductor_effect = calculate_electric_field_effect("conductor", 5)
     print(f"Conductor effect: {conductor_effect}")
+
+    # Simulate optical properties for high-refractive-index glass
+    optical_property = simulate_optical_properties(1.8, 550e-9) # High refractive index, green light wavelength
+    print(f"Optical property for high-refractive-index glass: {optical_property}")
 
     # This will trigger the potential division by zero alert if not handled
     # zero_voltage_effect = calculate_electric_field_effect("dielectric", 0)
